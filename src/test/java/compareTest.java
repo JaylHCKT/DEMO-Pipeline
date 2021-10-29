@@ -1,11 +1,10 @@
-package FBDIFileCompare;
+import FBDIFileCompare.compare;
+import org.junit.Test;
 
-import org.junit.jupiter.api.Test;
-
-class compareTest {
+public class compareTest {
 
 	@Test
-	void testComparer() throws Exception {
+	public void testComparer() throws Exception {
 		compare FC = new compare();
 		FC.comparer();
 	}
