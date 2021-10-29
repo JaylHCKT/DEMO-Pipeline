@@ -7,9 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class compare {
-	static void comparer() throws Exception {
+	public void comparer() throws Exception {
 		String[] filenames;
-    	String dir = "./bin/ControlFiles/";
+    	String dir = "./src/main/resources/files/";
     	File f = new File(dir);
         // Populates the array with names of files and directories
         filenames = f.list();
@@ -83,5 +83,8 @@ public class compare {
                 System.out.println(tmpList.get(i)); //content from second file which is not there
             }
         }
+        
+        return;
 	}
 }
+
