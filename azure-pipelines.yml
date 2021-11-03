@@ -20,10 +20,10 @@ steps:
     #publishJUnitResults: true
     #goals: 'package'
 
-# Command line
-# Run a command line script using Bash on Linux and macOS and cmd.exe on Windows
-- task: CmdLine@2
+steps:
+- task: Bash@3
   inputs:
-    script: 'FC ./src/main/resources/files/GlAccountCombinationsInterface_21B.ctl ./src/main/resources/files/GlAccountCombinationsInterface_21D.ctl' 
-    #workingDirectory: # Optional
-    #failOnStderr: false # Optional
+    targetType: 'inline'
+    script: echo $MYSECRET
+  env:
+    MYSECRET: 
