@@ -1,7 +1,10 @@
-import FBDIFileCompare.compare;
+package FBDIFileCompare;
+
+import static org.junit.Assert.fail;
+
 import org.junit.Test;
 
-public class compareTest {
+class compareTest {
 
 	@Test
 	void testComparerEGP() throws Exception {
