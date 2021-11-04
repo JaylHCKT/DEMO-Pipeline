@@ -10,6 +10,7 @@ public class compare {
 	public boolean comparer(String dir) throws Exception {
 		int diff = 0;
 		String[] filenames;
+		List<String> difflist = new ArrayList<String>();
     	File f = new File(dir);
         // Populates the array with names of files and directories
         filenames = f.list();
@@ -21,8 +22,6 @@ public class compare {
         else {
         	for (int i=0; i < filenames.length; i+=2) {
                 // Print the names of files and directories
-                //System.out.println(filenames[i]);
-                //System.out.println(filenames[i+1]);
                 File firstFile = new File(dir+filenames[i]);
                 File secondFile = new File(dir+filenames[i+1]);
                 BufferedReader br1 = null;
@@ -34,37 +33,15 @@ public class compare {
                 br2 = Files.newBufferedReader(secondFile.toPath());
                 while ((sCurrentLine = br1.readLine()) != null) {
                 	if(sCurrentLine.length() >= 1) {
-                		if(sCurrentLine.charAt(0) != '-') {            			
-                			if (sCurrentLine.charAt(0) == '(' && sCurrentLine.length() > 1) {
-                				list1.add(sCurrentLine.substring(1, sCurrentLine.length()-1));
-                			}
-                			else {
-                				if(sCurrentLine.charAt(sCurrentLine.length()-1) == ',' || 
-                    					sCurrentLine.charAt(sCurrentLine.length()-1) == ')'){
-                    				list1.add(sCurrentLine.substring(0, sCurrentLine.length()-1));
-                    			}
-                				else {
-                					list1.add(sCurrentLine);
-                				}
-                			}
+                		if(sCurrentLine.charAt(0) != '-') {  
+                			list1.add(sCurrentLine.replaceAll("[(),]",""));
                 		}
                 	}         	
                 }
                 while ((sCurrentLine = br2.readLine()) != null) {
                 	if(sCurrentLine.length() >= 1) {
-                		if(sCurrentLine.charAt(0) != '-') {            			
-                			if (sCurrentLine.charAt(0) == '(' && sCurrentLine.length() > 1) {
-                				list2.add(sCurrentLine.substring(1, sCurrentLine.length()-1));
-                			}
-                			else {
-                				if(sCurrentLine.charAt(sCurrentLine.length()-1) == ',' || 
-                    					sCurrentLine.charAt(sCurrentLine.length()-1) == ')'){
-                    				list2.add(sCurrentLine.substring(0, sCurrentLine.length()-1));
-                    			}
-                				else {
-                					list2.add(sCurrentLine);
-                				}
-                			}
+                		if(sCurrentLine.charAt(0) != '-') {   
+                			list2.add(sCurrentLine.replaceAll("[(),]",""));
                 		}
                 	}  
                 }
@@ -78,6 +55,7 @@ public class compare {
                     for(int j=0;j<tmpList.size();j++){
                         System.out.println(tmpList.get(j).replaceAll("\\s", "")); //content from first file which is not there		            
                     }
+                    difflist.add(filenames[i]);
                     diff++;
                 }
 
@@ -92,6 +70,7 @@ public class compare {
                     for(int j=0;j<tmpList.size();j++){
                         System.out.println(tmpList.get(j).replaceAll("\\s", "")); //content from second file which is not there
                     }
+                    difflist.add(filenames[i+1]);
                     diff++;
                 }
                 System.out.println();
@@ -102,7 +81,11 @@ public class compare {
         	return true;
         }
         else {
-        	System.out.println(diff +" failure(s) found in " +dir+ " directory, changes found in control files\n");
+        	System.out.println(diff +" failure(s) found in " +dir+ " directory, changes found in control files:");
+        	for(String difffile : difflist){
+        		System.out.println(difffile);
+        	}
+        	System.out.println();
         	return false;
         } 
 	}

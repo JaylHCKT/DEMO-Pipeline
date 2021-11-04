@@ -25,7 +25,6 @@ fields terminated by "," optionally enclosed by '"' trailing nullcols
    ROW_NUMBER                      SEQUENCE(1,1),
    STRUCTURE_INSTANCE_CODE,
    ENABLED_FLAG,
-   OLD_MIDDLE_FILE2_1,
    SEGMENT1,
    SEGMENT2,
    SEGMENT3,
@@ -82,8 +81,7 @@ fields terminated by "," optionally enclosed by '"' trailing nullcols
    ATTRIBUTE_NUMBER2 "decode(:ATTRIBUTE_NUMBER2,null,null,'$null$','-999999999999999999',:ATTRIBUTE_NUMBER2)",
    ATTRIBUTE_NUMBER3 "decode(:ATTRIBUTE_NUMBER3,null,null,'$null$','-999999999999999999',:ATTRIBUTE_NUMBER3)",
    ATTRIBUTE_NUMBER4 "decode(:ATTRIBUTE_NUMBER4,null,null,'$null$','-999999999999999999',:ATTRIBUTE_NUMBER4)",
-   ATTRIBUTE_NUMBER5 "decode(:ATTRIBUTE_NUMBER5,null,null,'$null$','-999999999999999999',:ATTRIBUTE_NUMBER5)",
-   OLD_END_FILE2_1
+   ATTRIBUTE_NUMBER5 "decode(:ATTRIBUTE_NUMBER5,null,null,'$null$','-999999999999999999',:ATTRIBUTE_NUMBER5)"
 
  )
 
