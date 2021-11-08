@@ -13,4 +13,4 @@ steps:
 - task: CmdLine@2
   inputs:
     script: |
-      git diff users/jason/feature origin/master
+      git diff JL_Branch/feature origin/master
