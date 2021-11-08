@@ -12,4 +12,4 @@ pool:
 steps:
 - task: CmdLine@2
   inputs:
-    script: 'git diff -- main..JL_Branch'
+    script: 'git diff -- JL_Branch..main'
