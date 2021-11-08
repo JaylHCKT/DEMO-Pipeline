@@ -3,8 +3,7 @@ append
  
 INTO TABLE fa_leases_int
 fields terminated by ','   optionally enclosed by '"' trailing nullcols
-(NEW_LINE
-,CREATION_DATE	                      expression "systimestamp"
+(CREATION_DATE	                      expression "systimestamp"
 ,CREATED_BY	                          constant '#CREATEDBY#'
 ,LAST_UPDATE_DATE	                    expression "systimestamp"
 ,LAST_UPDATE_LOGIN	                  constant '#LASTUPDATELOGIN#'
