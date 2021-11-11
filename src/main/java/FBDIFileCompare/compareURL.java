@@ -7,12 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class compareURL {
+	
 	public boolean comparer(String filename, String ver1, String ver2) throws Exception {
 		String orcURL = "https://www.oracle.com/webfolder/technetwork/docs/fbdi-";
 		String FBDIdir = "/fbdi/controlfiles/";
-		//String filename = "PoHeadersInterfaceBlanket.ctl";
-		//String ver1 = "21a";
-		//String ver2 = "21d";
 		int diff = 0;
 		List<String> difflist = new ArrayList<String>();
 		

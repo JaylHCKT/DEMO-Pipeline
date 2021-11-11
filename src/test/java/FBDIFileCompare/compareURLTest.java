@@ -1,8 +1,12 @@
 package FBDIFileCompare;
 
 import static org.junit.Assert.*;
-import java.util.Arrays;
+import java.io.BufferedReader;
+import java.io.File;
+import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,10 +16,10 @@ import org.junit.runners.Parameterized;
 public class compareURLTest {
 	
 	String filename = "";
-	static String ver1 = "21a";
-	static String ver2 = "21d";
+	String ver1 = "";
+	String ver2 = "";
 	Boolean expectedResult = true;
-	compareURL compareURL;
+	static compareURL compareURL;
 	
 	@Before
 	public void initialize() {
@@ -24,23 +28,29 @@ public class compareURLTest {
 	
 	public compareURLTest(String filename, String ver1, String ver2, Boolean expectedResult){
 		this.filename = filename;
-		compareURLTest.ver1 = ver1;
-		compareURLTest.ver2 = ver2;
+		this.ver1 = ver1;
+		this.ver2 = ver2;
 		this.expectedResult = expectedResult;
 	}
-	
+		
 	@Parameterized.Parameters
-	public static Collection FileURLtoTest() throws Exception{
-		return Arrays.asList(new Object[][] {
-			{"PoHeadersInterfaceBlanket.ctl",ver1,ver2,true},
-			{"FaLeasesINT.ctl",ver1,ver2,true},
-			{"FaLeaseBooksINT.ctl",ver1,ver2,true},
-			{"FaLeaseSchINT.ctl",ver1,ver2,true},
-			{"FaLeaseScheduleItemsINT.ctl",ver1,ver2,true},
-			{"FaMassAdditions.ctl",ver1,ver2,true},
-			{"FaMassaddDistributions.ctl",ver1,ver2,true},
-			{"FaMcMassRates.ctl",ver1,ver2,true}
-			});
+	public static Collection<Object[]> FileURLtoTest() throws Exception{
+	  List<Object[]> data = new ArrayList<Object[]>();	  
+	  List<String> filelist = new ArrayList<String>();
+	  File f = new File("./controlfiles/controlfiles.txt");
+	  String cl;
+	  BufferedReader br = Files.newBufferedReader(f.toPath());
+      while ((cl = br.readLine()) != null) {
+      	filelist.add(cl);
+      }
+	  
+	  int count = 2; 		
+      while (filelist.size() > count) {
+    	  //System.out.println(filelist.get(count));
+    	  data.add(new Object[] {filelist.get(count),filelist.get(0),filelist.get(1),true});
+    	  count++;
+      }
+	  return data;
 	}
 	
 	@Test
