@@ -33,7 +33,7 @@ public class compareURLTest {
 		this.expectedResult = expectedResult;
 	}
 		
-	@Parameterized.Parameters
+	@Parameterized.Parameters(name = "{0}")
 	public static Collection<Object[]> FileURLtoTest() throws Exception{
 	  List<Object[]> data = new ArrayList<Object[]>();	  
 	  List<String> filelist = new ArrayList<String>();
