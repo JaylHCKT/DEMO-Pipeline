@@ -54,7 +54,7 @@ public class compareURLTest {
 	}
 	
 	@Test
-	public void testcompareURL() throws Exception {
+	public void ControlFile() throws Exception {
 		System.out.println("Comparing versions for "+filename+":\n");
 		assertEquals(expectedResult, compareURL.comparer(filename,ver1,ver2));
 	}
