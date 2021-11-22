@@ -1,1 +1,10 @@
-LIST:
+-----FIN-----
+fin/assets/import:
+FaLeasesINT.ctl
+FaLeaseBooksINT.ctl
+FaLeaseSchINT.ctl
+FaLeaseScheduleItemsINT.ctl
+fin/fixedAsset/import:
+FaMassAdditions.ctl
+FaMassaddDistributions.ctl
+FaMcMassRates.ctl
