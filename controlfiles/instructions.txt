@@ -1,4 +1,4 @@
-How to Configure the Compare Tool Pipeline:
+How to Configure the Compare Tool Repository:
 
 1. Create a branch for yourself that is a fork/clone of the main branch.
 
@@ -6,6 +6,6 @@ How to Configure the Compare Tool Pipeline:
 
 3. Currently there is a Master list of control files that we are looking to expand collaboratively were all control file names would be located, first check if the control files you are looking to compare are already listed in the master list, if not please feel free to add them as to benefit future users.
 
-4. Once you have updated the 'controlfiles.txt' on your branch, create a pull request to main. Once approve a CI pipeline will automatically run the comparison and output the results under 'Test Plans'
+4. Once you have updated the 'controlfiles.txt' on your branch, create a pull request to main. Once approved, a CI pipeline will automatically run the comparison and output the results under 'Test Plans'
 
 5. Check the results of the test and see if any differences are present from the two versions, if there are changes the link to download the two versions of the control files will become available and the test results will also outline which columns have been changed.
